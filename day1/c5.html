@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Example</title>
+    <style>
+        .outer{
+            /* Default  display: block; Ony below another. Flex : One beside another ...*/
+            display: flex; 
+            width: 100%;
+            align-items: center; /* Vertical alignment */
+            justify-content: center; /* Horizontal alignment */
+            height: 100vh   ;
+        }
+        .inner{
+            border: dotted;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="outer">
+        <div class="inner"> Hello 1</div>
+        <div class="inner"> Hello 2</div>
+        <div class="inner"> Hello 3</div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* Import another.css using @ */
+@import "./another_style_6.css";
+
+div{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color: yellow;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    box-shadow: 5px 5px 5px 5px gray;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}

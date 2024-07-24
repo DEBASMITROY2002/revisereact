@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input tag revision</title>
+</head>
+<body>
+    <div>
+        SSC : <input type="checkbox" name="ssc" id="ssc"> 
+        <br>
+        HSC : <input type="checkbox" name="hsc" id="hsc"> 
+        <br>
+        <input type = "button" value = "Submit">
+        <input type = "text" value = "Enter your name">
+        <br>
+        <!-- Radio name is same for both the radio buttons. So , only one radio button can be selected at a time. -->
+        <input type = "radio" name = "Nationality" value = "Indian" id="r0"> Indian
+        <input type = "radio" name ="Nationality" value = "Canadian" id="r1"> Canadian
+        <input type = "radio" name = "Nationality" value = "American" id="r2"> <label for="r2">American</label>
+        <label>
+            <!-- No need of for / id -->
+            <input type = "radio" name="Nationality" value = "Australian" id="r3"> Australian
+        </label>
+    </div>
+    
+    <!--  Text area tag . It is used to take multiple lines of input. -->
+    <div>
+        <textarea rows = "4" cols = "50">
+            Enter your text here.
+        </textarea>
+
+        <br>
+        <input type = "color">
+        <br>
+        <input type = "date">
+        <br>
+        <input type = "number">
+        <br>
+
+    </div>
+
+    <div>
+        <!-- Select tag is used to create a drop down list. -->
+         <select>
+            <option value = "1">Option 1</option>
+            <option value = "2">Option 2</option>
+            <option value = "3">Option 3</option>
+            <option value = "4">Option 4</option>
+         </select>
+    </div>
+</body>
+</html>

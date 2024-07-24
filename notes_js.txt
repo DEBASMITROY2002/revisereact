@@ -1,0 +1,130 @@
+Vanilla JS:
+
+Two interpreters:
+    1. node command interpreter
+    2. browser interpreter
+
+var vs let vs const:
+    var: function-scoped | ECMA specification
+    let: block-scoped | Latest ECMA specification
+    const: block-scoped
+
+var has a concept of hoisting, let and const do not have hoisting. 
+This means that var can be used before it is declared, but let and const cannot be used before they are declared.
+If var is there , the JS interpreter will move the declaration to the top of the function ie global. This is called hoisting.
+
+
+------ ------- ------ ------- ------ ------- ------ ------- ------ ------- ------ ------- ------ ------- ------ ------- 
+
+Callback Queue:
+    - Callback queue is a queue of functions that are waiting to be executed.
+    - The event loop is constantly checking if the call stack is empty. If it is empty, it will take the first function in the callback queue and push it to the call stack.
+    - The callback queue is also known as the message queue.
+
+JS Process has two datastructures 1. Program Stack 2. Callback Queue
+
+console.log('1');
+setTimeout(() => {
+    console.log('2');
+}, 1000);
+console.log('3');
+
+Program flow: 
+        a. console.log('1') is pushed to the call stack and executed.
+        b. setTimeout() is pushed to the call stack and executed. It pushes the callback function to the callback queue.
+        c. console.log('3') is pushed to the call stack and executed.
+        d. The event loop checks if the call stack is empty. If it is empty, it will take the first function in the callback queue and push it to the call stack.
+        e. console.log('2') is pushed to the call stack and executed.
+        f. How the time is handled ? 
+
+
+Javascript is not a multi-threaded language. It is single-threaded. So, dont use while(True). 
+It will block the call stack and callback queue will not be executed.
+
+
+
+
+
+----------------------------- <script> ... </script> -----------------------------
+
+The browser will execute the script tag in the order it is written in the HTML file 
+before rendering the rest of the page according to the DOM structure.
+So, if you have a script tag at the top of the HTML file, 
+it will be executed before the rest of the page is rendered.
+
+So, we write mainly fucntions only in the script tag. 
+And, we call the functions in the body tag during event.
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+here document refers to the DOM object of the HTML file.
+
+document:
+    .getElementById() - access the element with the specified id.
+        ...innerText - access the text content of an element.
+        ...innerHTML - access the content of an element.
+        ...style.property - changes the style of an element.
+        ...value - access the value of an element.
+        
+
+------ ------- ------ ------- ------ ------- ------ ------- ------ ------- ------ ------- ------ ------- 
+DESTRUCTURING (A convenient way of extracting multiple values from data stored in objects and arrays)
+
+const person = {
+    name: 'John',
+    age: 30,
+    city: 'New York'
+};
+
+const { name:n, age, city:c } = person;
+console.log(n, age, c); // John 30 New York
+
+arr = [1, 2, 3, 4, 5];
+[a,,, c] = arr; // a=1, c=4
+
+
+
+
+
+----------------- Closure -----------------
+
+When a function return another function, the returned function has access to the variables in the outer function.
+The context is carried along with the returned function. This is called closure.
+
+function outer() {
+    let a = 10; 
+    --> a is a local variable of outer function but it is accessible to inner function 
+        -- even after outer function is executed.
+    function inner() {
+        console.log(a);
+    }
+    return inner;
+}
+
+let inner1 = outer();
+inner1(); // 10
+
+
+-------------- Spread Operator --------------
+
+To create a copy of an array or object, deep copy.
+
+
+
+
+
+----------------- Promises , async and await -----------------
+
+Promises:
+    - Inbuilt class in JS.
+    - Promises are used to handle asynchronous operations in JavaScript.
+    - functions: then and catch
+    - Three states: Pending, Fulfilled, Rejected
+    - promise: future action 
+
+async function fun(){
+    await new Promise(); BLOCK the execution of the function until the promise is resolved.
+    ...
+    ...
+} 

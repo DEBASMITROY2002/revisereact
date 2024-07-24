@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>This is a revision</title>
+    </head>
+    <body>
+        <h1> Heading</h1>
+        <h6> Small Heading</h6>
+        <!-- Logical  Text Seperator-->
+         <div>
+            Hi everyone!
+            <br>
+            I am adding a new line here.
+            <br>
+            Lets see it.
+            <br>
+            Cool!!!
+         </div>
+         
+         <div>
+            Another paragraph div
+         </div>
+
+        <pre>
+            This is a preformatted text.
+         It will be displayed as it is in the source code.
+            No matter how many spaces         you give.
+        </pre>
+        
+        <p>
+            This is a paragraph.
+            <br>
+            This is a new line in the same paragraph.
+        </p>
+
+        <span>
+            This is a span.
+            <br>
+            This is a new line in the same span.
+        </span>
+
+        <!-- 
+        Div vs Span
+        Div is a block level element. It takes the full width of the parent element.
+        Span is an inline element. It takes the width of the content.
+        -->
+        
+    </body>
+</html>
+
+
+<!-- 
+The DOM Tree looks like this:
+
+                            html
+                /                             \
+            head                              body
+            /                                 /    |    \  \
+        title                           h1    h6    div   ....
+        /                                 /    |    \     \  \
+    This is a revision          Hi everyone!  Another paragraph div
+                                I am adding a new line here.
+                                Lets see it.
+                                Cool!!!
+                                This is a preformatted text.
+                                It will be displayed as it is in the source code.
+                                No matter how many spaces         you give.
+                                This is a paragraph.
+                                This is a new line in the same paragraph.
+                                This is a span.
+                                This is a new line in the same span.
+
+
+
+-->

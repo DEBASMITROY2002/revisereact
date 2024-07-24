@@ -1,0 +1,36 @@
+.outer{
+    justify-content: center; /* Horizontal alignment */
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.inner{
+    border: dotted;
+    text-align: center;
+}
+
+@media screen and (max-width: 480px){
+    .outer{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .inner{
+        background-color: aqua;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 720px) and (min-width: 480px){
+    .outer{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 720px) and (min-width: 480px){
+    .inner{
+        background-color: violet;
+        width: 100%;
+    }
+}

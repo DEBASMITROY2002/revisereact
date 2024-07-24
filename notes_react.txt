@@ -1,0 +1,259 @@
+npx create-react-app revisereact
+
+public: hold the HTML files and other static assets. To be served by the server to the client.
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+); ----> We can remove the React.StrictMode tag from the index.js file. Used for development purposes only.
+
+React is Web UI Component = 
+    - It will be deployed on the web server.
+    - It will be served to the client.
+
+Web server: Recieves http requests from the client and sends back the response.
+
+
+Web Client <----> |     React App      |(Web Server1) <--------------- VS Code
+Web Server1 : Free hosting service running at http://localhost:3000/ |npm start 
+
+
+App.js --------> root.render(<App/>) index.js ---------> index.html 
+
+
+App is a React component !! Is accessed by user defined Tag !!
+
+Functional Component / Class Component  -> Use it ia tag </>
+
+
+
+
+============================= Import / Export =======================
+
+export function f1(){                   
+}                                  -->  import {f1} from './f1.js'
+f1.js 
+
+export default function f1(){       -->  import f1 from './f1.js'
+}                                
+
+There can be only one default export in a file but multiple named exports.
+
+
+======================== JSX ========================
+
+What is function component returning ? 
+It is returning JSX code. JSX code is converted to React.createElement() code by Babel.
+
+function App() {
+  return <h1>Hello React</h1>  // JSX code
+} 
+
+If we use " " in JSX code, it will be treated as a string. No html tags will be rendered.
+Each JSX element is a single tag.
+
+***  return (
+    <>
+    <h1>Hello React</h1>
+    <p>Hello Node</p>
+    </>
+  )
+
+*** For multiple tags, we can use React.Fragment or <></> tag.
+
+*** We use css style in div as an object. 
+    <div style={{color: 'red', fontSize: '20px'}}>Hello</div>
+
+    .class-name {color: 'red', fontSize: '20px'}  -->  <div className="class-name">Hello</div>
+
+    else use className="class-name" for css styling.
+
+
+
+
+=========================== Props =========================
+
+Props are used to pass data from parent component to child component.
+
+Pseudo Code:
+
+In App.js file, we have a parent component which is passing data to child component.
+import Child from './Child.js'
+function Parent() {
+  return (
+    <Child name="John" age="25"/>
+  )
+}
+
+In Child.js file, we have a child component which is receiving data from parent component.
+function Child(props) {
+  return (
+    <h1>{props.name}</h1>
+    <h2>{props.age}</h2>
+  )
+}
+export default Child
+
+
+
+=================================== Event Handling ===================================
+
+function App() {
+  function handleClick(event) {
+    // even.target is the html element on which the event occured. 
+    console.log('Button Clicked')
+  }
+  return (
+    <button onClick={handleClick}>Click Me</button>
+  )
+}
+
+
+========================= Rendering and State Variabe ==================================
+To display the changed value of a variable, we need to use state variable.
+Library used: Hook and useState
+Whenever the state variable changes, the component is re-rendered.
+
+
+
+======================== List Rendering And Virtual DOM ===============================
+
+function App() {
+  const names = ['John', 'Doe', 'Smith']
+  return (
+    <ul>
+      {names.map((name, index) => {
+        return <li key={index}>{name}</li>
+      })}
+    </ul>
+  )
+}
+
+When the state variable changes, the component is re-rendered.
+React uses Virtual DOM to update only the changed part of the DOM. It is faster than updating the entire DOM.
+
+
+
+========= Lift State Up ==========
+When two components share the same state, then the state should be lifted up to the parent component.
+The parent component will pass the state to the child component as props, i.e. function object is passed as props.
+
+======================= When Does function returned by useState re-rendered ? ===================
+When the state variable changes, the function returned by useState is re-rendered.
+oldvalue == newvalue, then no re-rendering is done. 
+IF BOTH ARE PRIMITIVE DATA TYPES, THEN THEY ARE COMPARED BY VALUE. SO, NO RE-RENDERING IS DONE.
+BUT IF BOTH ARE OBJECTS, THEN THEY ARE COMPARED BY REFERENCE. SO, RE-RENDERING IS DONE.
+
+** good practice: Dont change the state var directly. Make a deep copy of the state var and store in new temp. 
+   Then set the state var to the new temp.
+
+
+======================= Delayed State Update ===================
+
+The state variable is updated after a the parent function is executed. Because the state variable is updated asynchronously.
+
+
+
+================= Hooks ===================
+
+UseRef : 
+It preserves the current value of the variable across re-renders.  ****
+Not reiniatlized every time. *****
+If useRef is modified in a function, the component is not re-rendered.
+
+id = useRef(0)
+id.current
+id.current = id.current + 1
+-----
+
+UseSate:
+It is used to store the state of the component.
+It is used to re-render the component when the state changes.
+
+const [count, setCount] = useState(0)
+setCount(count + 1)
+
+---- 
+UseEffect: 
+
+Life cycle methods of class component are implemented using useEffect in functional component.
+Life cycle of class component: 
+              Component Mounted
+              Component props, state updated
+              Component Unmounted
+Life cycle of any component is managed by "React" / Container
+
+let [msg, setMsg] = useState('Hi')
+
+useEffect(()=>{
+    console.log('Component is mounted')
+    return ()=>{
+        console.log('Component is unmounted')
+    }
+}, [])
+
+useEffect(()=>{
+    console.log('msg Component is mounted')
+}, [msg]) // msg is the dependency, so whenever msg changes, this effect will be called
+
+================== Redux ===================
+
+Routing : Navigation between different components without refreshing the page.
+Till now we have seen Data sharing b/w parent and child components. 
+
+Recall Parent-Child relationship.
+
+Child.js
+
+export default function Child(props) {
+  a = props.a
+  return (
+    <div>
+      <h1>Child Component</h1>
+    </div>
+  )
+}
+
+
+Parent.js
+
+import Child from './Child.js'
+export default function Parent() {
+  return (
+    <div>
+      <h1>Parent Component</h1>
+      <Child a="10"/>
+    </div>
+  )
+}
+
+*******
+But what if we want to share data b/w siblings or any other components ... :-o
+
+Redux data store. IT IS NOT A REACT LIBRARY. IT IS A 3rd PARTY LIBRARY.
+
+npm install react-router react-router-dom
+npm install redux react-redux @reduxjs/toolkit
+
+Many components subscribe to the store and get the data from the store.
+The store is immutable. We can't change the store directly. 
+We can only dispatch an action to change the store.
+
+C1\   
+   \ 
+    \ sub : change / store / read
+     \
+C2 ----  Shared Data Store ( Redux Store / immutable ) ---- C3
+      /
+...  / 
+    / sub ....
+Cn /
+
+
+
+====================== Routes =======================
+
+<Link to="/about">About</Link> : It is used to navigate to the about page.
+<outlet></outlet> : It is a placeholder for the component to be rendered for different routes.
+

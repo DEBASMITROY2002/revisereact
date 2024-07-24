@@ -1,0 +1,111 @@
+CSS ( Cascaded Style Sheet ) --------
+
+3 Types of CSS Integration:
+    1. Inline CSS
+    2. Internal CSS
+    3. External CSS
+
+---- FAQ ----
+
+1. Default height is auto to wrap the content. Eg. If there is no content, height is 0. 
+2. Default width is 100% to take the full width of the parent container.
+3. It is called Cascaded because the properties are applied from top to bottom. If there is a conflict, the last property is applied.
+4. CSS Box: Content, Padding, Border, Margin.
+5. The width refers to the content width. The padding, border, and margin are added to the width to get the total width. So the total width is width + padding + border + margin.
+6. box-sizing: border-box; -> It includes padding and border in the width. So the total width is width + margin.
+8. <meta> tag : It is read by the browser to understand the content of the page. Eg. <meta charset="UTF-8">, <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+-------------------- Inline CSS --------------------
+    1. porperty-1: value;
+    2. It is written inside the tag as Style. Eg. <div style="property-1: value; property-2: value;">
+
+
+-------------------- Internal CSS --------------------
+    1. <style> tag is used to write the CSS.
+    2. It is written inside the head tag. It is a convention.
+    3. It is applied to the whole page.
+    4. Eg. 
+        <style>
+            selector {
+                property-1: value;
+                property-2: value;
+            }
+        </style>
+
+        <head>
+            ....
+            <style>
+                div {
+                    background-color: red;
+                    color: white;
+                } ---> All div tags will have this style. Tag selector
+                #idA {
+                    background-color: blue;
+                    color: white;
+                } ---> All tags with id="idA" will have this style. ID selector
+                *{
+                    background-color: yellow;
+                    color: black;
+                } ---> All tags will have this style. Universal selector
+                .ninja{
+                    background-color: green;
+                    color: white;
+                } ---> All tags with class="ninja" will have this style. Class selector
+            </style>
+        </head>
+
+So far the selectors are:
+    1. Tag selector
+    2. ID selector
+    3. Universal selector
+    4. Class selector
+
+- Attribute selector -
+    1. It is used to select tags with a specific attribute.
+    2. Eg. 
+        <style>
+            [href]{
+                color: red;
+            } ---> All tags with href attribute will have this style.
+            [href="https://www.google.com"]{
+                color: blue;
+            } ---> All tags with href="https://www.google.com" will have this style.
+        </style>
+    3. ^= -> Starts with , $= -> Ends with, *= -> Contains, != -> Not equal to ... are some of the operators used in attribute selector.
+    4. example: [name^="a"] , [name$="a"] , [class *="ninja"] , [class !="ninja"] , [id = "idA"] ... any attribute can be used.
+
+
+
+
+
+--------------------------------- External CSS ------------------------------
+
+1. It is written in a separate file with .css extension.
+2. It is linked to the HTML file using the link tag.
+3. Connecting css with html : <link rel="stylesheet" type="text/css" href="notes_css.css">
+4. Connecting css with another css file : @import url("notes_css.css");
+
+html ------ link tag -------- css1 ----------- @ ------------ css2
+
+5. When multiple css files are linked, the last css file is applied. So this is kind of union.
+
+
+
+
+--------------------------------- Responsive CSS ------------------------------
+
+To make compatible with all devices, we use responsive CSS depending on the screen size == viewport.
+Responsive UI is the UI that adjusts according to the screen size.
+
+@media tags for accomodating changes in different screen sizes.
+smart phones: 320 x 480
+tablets: 768 x 1024
+laptops: 1024 x 768
+...
+
+Broswer is informed using the meta tag that the content has to adjusted as per the device width.
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+This has opened the POSSIBILITY of responsive design.
+
+

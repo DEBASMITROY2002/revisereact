@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Example</title>
+
+    <script>
+        console.log("1. Hello World");
+        var arr = []
+        function handler1() {
+            let txt1 = document.getElementById("txt1").value;
+            arr.push(txt1);
+            document.getElementById("p1").innerHTML = `<h1>${arr}</h1>`;
+            console.log("3. Hello World");
+        }
+    </script>
+</head>
+<body>
+
+    <script>
+        console.log("2. Hello World");
+    </script>
+
+    <input type="text" id = "txt1"/>
+    <input type="button" value="Click Me" id="b1" onclick="handler1()"/>
+    <p id="p1"></p>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS More</title>
+    <style>
+        [class^="test"]{
+            background-color: rgb(255, 0, 217);
+            width: fit-content;
+        }
+        [href^="https"]{
+            color: rgb(0, 255, 255);
+        }
+        [href$=".com"]{
+            color: rgb(255, 255, 0);
+        }
+        div.inner{
+            background-color: rgb(0, 81, 255);
+            color: white;
+            width: 300px;
+            padding: 10px;
+            border: solid 3px rgb(6, 242, 61);
+            box-sizing: border-box; /* the width is treated as the total width of the box. Otherwise overflow ... */
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer" style="width:300px; height:300px; background-color: rgb(255, 0, 0); border-style: solid 3px;">
+        <h1>Heading 1</h1>
+        <p>Paragraph 1</p>
+        <div class="inner">
+            <h1>Heading 2</h1>
+            <p>Paragraph 2</p>
+        </div> 
+    </div>
+    <div class="testamen">
+        <h1>Heading 3</h1>
+        <p>Paragraph 3</p>
+        <a href="https://www.google.com">Google</a>
+        <a href="https://www.facebook.in">Facebook</a>
+    </div> 
+</body>
+</html>

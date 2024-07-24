@@ -1,0 +1,59 @@
+HTML
+
+1. <TAG attribute1=value1 attribute2=value2> TAG BODY </TAG>
+    a. TAG BODY can contain other tags or text
+        <TAG1>
+            <TAG2> TAG2 BODY </TAG2>
+        </TAG1> 
+
+
+Browser reads the HTML.
+It creates a DOM tree. DOM: Document Object Model.
+It renders the DOM tree.
+
+DOM tree:
+    ROOT NODE (TAGS)
+        |
+      CHILD NODES (NESTED TAGS)
+        |
+        CHILD NODES (NESTED TAGS)
+        ...
+        |
+        LEAF NODES (TEXT)
+
+AS UI Tech use interpreter to read the HTML and create the DOM tree. 
+So translation and execution are done at the same time.
+
+
+------------ Radion Button  vs  Checkbox ------------
+
+Radion Button are single selection if they have same name.
+Checkbox are multiple selection even if they have same name.
+
+
+------------ Input Tags ------------
+
+Input tags are self closing tags. Input tags don't have a body. They have attributes.
+Wrong: <input>   ada wsdasd <input/>
+Correct: <input type="text" value="Hello World" /> or <input></input>
+
+------------ Label Tags ------------
+
+Label tag is used to give a name to the input tag.
+ = user can click on the label to select the input tag.
+
+------------ Form Tags ------------
+
+form tag is used to GROUP the input tags.
+ = club multiple input tags together.
+ = user can submit the form to send the data to the server.
+ = Fires the submit event on the form tag as http request.
+ = Name - value pair is sent to the server. Names are the names of the input tags. Values are the values of the input tags.
+ =         <button> tag is used to submit the form.
+ =         <input type="submit"> DOES NOT submit the form. It is used to create a button to submit the form.
+ = GET method: Sends the data in the URL. Data is visible in the URL. As key-value pairs / Query String.
+ = POST method: Sends the data in the body of the request. Data is not visible in the URL. As key-value pairs.
+
+------------ Anchor Tags ------------
+
+<a href=PATH> .... Creates a get request

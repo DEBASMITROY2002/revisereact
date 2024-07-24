@@ -1,0 +1,23 @@
+
+/* Default viewport */
+.adjustable{
+    border: 2px solid #000;
+    padding: 20px;
+    background-color: aqua;
+    width: 300px;
+    height: 300px;
+}
+
+/* When the viewport is 480px or less */
+@media screen and (max-width: 480px){
+    .adjustable{
+        background-color: rgb(222, 10, 10);
+    }
+}
+
+/* When the viewport is 720px or less */
+@media screen and (max-width: 720px) and (min-width: 480px){
+    .adjustable{
+        background-color: violet;
+    }
+}
